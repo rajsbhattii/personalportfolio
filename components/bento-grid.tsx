@@ -3,6 +3,7 @@
 import { BentoBox } from "./bento-box"
 import { ContactBox } from "./contact-box"
 import { SkillsBox } from "./skills-box"
+import { GalleryBox } from "./gallery-box"
 
 
 export function BentoGrid() {
@@ -34,7 +35,7 @@ export function BentoGrid() {
         <BentoBox id="projects" label="Projects" />
         <ContactBox />
         <SkillsBox />
-        <BentoBox id="gallery" label="Gallery" />
+        <GalleryBox />
         <BentoBox id="blog" label="Blog" className="col-span-2" />
       </div>
     </div>
