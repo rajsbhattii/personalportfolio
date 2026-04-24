@@ -2,14 +2,6 @@
 
 import { BentoBox } from "./bento-box"
 
-const bentoItems = [
-  { id: "about", label: "About" },
-  { id: "work", label: "Work" },
-  { id: "projects", label: "Projects" },
-  { id: "contact", label: "Contact" },
-  { id: "skills", label: "Skills" },
-  { id: "blog", label: "Blog" },
-]
 
 export function BentoGrid() {
   return (

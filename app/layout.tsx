@@ -8,9 +8,8 @@ const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
-  title: 'Portfolio',
-  description: 'Minimal bento box portfolio',
-  generator: 'v0.app',
+  title: 'Raj Bhatti',
+  description: 'Personal portfolio',
   icons: {
     icon: [
       {
@@ -36,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-background">
+    <html lang="en" className="bg-background" suppressHydrationWarning>
       <body className={`${geist.variable} ${geistMono.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}

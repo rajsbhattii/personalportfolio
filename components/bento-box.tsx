@@ -31,9 +31,17 @@ export function BentoBox({ id, label, className = "" }: BentoBoxProps) {
     setIsOpen(true)
   }
 
+  useEffect(() => {
+    if (!isOpen) return
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') handleClose() }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [isOpen])
+
   return (
     <>
       <button
+        data-section={id}
         onClick={handleOpen}
         className={`group relative bg-card border border-border rounded-lg transition-all duration-300 hover:border-foreground/20 hover:shadow-sm cursor-pointer ${className}`}
       >
