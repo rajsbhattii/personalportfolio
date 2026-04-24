@@ -123,3 +123,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+@theme {
+  --animate-ticker-left: ticker-left 20s linear infinite;
+  --animate-ticker-right: ticker-right 32s linear infinite;
+}
+
+@keyframes ticker-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes ticker-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}

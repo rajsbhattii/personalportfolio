@@ -2,6 +2,7 @@
 
 import { BentoBox } from "./bento-box"
 import { ContactBox } from "./contact-box"
+import { SkillsBox } from "./skills-box"
 
 
 export function BentoGrid() {
@@ -13,7 +14,7 @@ export function BentoGrid() {
         <BentoBox id="work" label="Work" />
         <BentoBox id="projects" label="Projects" />
         <ContactBox />
-        <BentoBox id="skills" label="Skills" />
+        <SkillsBox />
       </div>
 
       {/* Tablet Layout - 3 columns */}
@@ -22,7 +23,7 @@ export function BentoGrid() {
         <BentoBox id="work" label="Work" />
         <BentoBox id="projects" label="Projects" />
         <ContactBox />
-        <BentoBox id="skills" label="Skills" />
+        <SkillsBox />
         <BentoBox id="blog" label="Blog" />
       </div>
 
@@ -32,7 +33,7 @@ export function BentoGrid() {
         <BentoBox id="work" label="Work" className="row-span-2" />
         <BentoBox id="projects" label="Projects" />
         <ContactBox />
-        <BentoBox id="skills" label="Skills" />
+        <SkillsBox />
         <BentoBox id="gallery" label="Gallery" />
         <BentoBox id="blog" label="Blog" className="col-span-2" />
       </div>
