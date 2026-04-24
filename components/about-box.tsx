@@ -1,17 +1,44 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { X } from "lucide-react"
+import { X, User } from "lucide-react"
 import { createPortal } from "react-dom"
 
-export function GalleryBox({ className = "" }: { className?: string }) {
+const roles = ["Software Engineer", "Full Stack Developer", "Data Engineer", "Photographer", "Designer", "Tech Enthusiast"]
+
+export function AboutBox({ className = "" }: { className?: string }) {
   const [isOpen, setIsOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const [mounted, setMounted] = useState(false)
 
+  const [displayText, setDisplayText] = useState("")
+  const [roleIndex, setRoleIndex] = useState(0)
+  const [isDeleting, setIsDeleting] = useState(false)
+
   useEffect(() => {
     setMounted(true)
   }, [])
+
+  useEffect(() => {
+    const current = roles[roleIndex]
+    let timeout: ReturnType<typeof setTimeout>
+
+    if (!isDeleting && displayText === current) {
+      timeout = setTimeout(() => setIsDeleting(true), 2000)
+    } else if (isDeleting && displayText === "") {
+      setIsDeleting(false)
+      setRoleIndex(i => (i + 1) % roles.length)
+    } else {
+      timeout = setTimeout(() => {
+        setDisplayText(isDeleting
+          ? current.slice(0, displayText.length - 1)
+          : current.slice(0, displayText.length + 1)
+        )
+      }, isDeleting ? 50 : 100)
+    }
+
+    return () => clearTimeout(timeout)
+  }, [displayText, roleIndex, isDeleting])
 
   const handleClose = () => {
     setIsVisible(false)
@@ -36,26 +63,36 @@ export function GalleryBox({ className = "" }: { className?: string }) {
     <>
       <button
         onClick={handleOpen}
-        className={`w-full h-full text-left border border-border rounded-lg overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:border-foreground/20 hover:shadow-sm ${className}`}
+        className={`w-full h-full text-left bg-card border border-border rounded-lg transition-all duration-300 hover:border-foreground/20 hover:shadow-sm cursor-pointer relative ${className}`}
       >
-        {/* Image grid */}
-        <div className="flex-1 flex flex-col gap-0.5 min-h-0">
-          <div className="flex flex-1 gap-0.5">
-            {[0, 1, 2].map(i => <div key={i} className="flex-1 bg-muted" />)}
+        {/* Centered content */}
+        <div className="absolute inset-0 flex flex-col items-start justify-center gap-3 p-6 pb-10">
+          {/* Photo placeholder */}
+          <div className="w-20 h-20 rounded-xl bg-muted flex items-center justify-center shrink-0">
+            <User className="w-9 h-9 text-muted-foreground/40" />
           </div>
-          <div className="flex-1 overflow-hidden">
-            <div className="h-full flex gap-0.5 w-[133.333%] -translate-x-[12.5%]">
-              {[3, 4, 5, 6].map(i => <div key={i} className="flex-1 bg-muted" />)}
-            </div>
-          </div>
+
+          {/* Name */}
+          <p className="text-7xl font-bold text-foreground tracking-tight leading-none">
+            Raj Bhatti
+          </p>
+
+          {/* Typing animation */}
+          <p className="text-xl text-muted-foreground h-7 flex items-center gap-0.5 p-1">
+            <span>{displayText}</span>
+            <span className="animate-pulse">|</span>
+          </p>
+
+          {/* Tagline */}
+          <p className="text-sm text-muted-foreground/60 leading-relaxed p-1">
+            building things, capturing moments
+          </p>
         </div>
 
-        {/* Label strip */}
-        <div className="bg-card px-3 py-2.5 border-t border-border">
-          <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
-            Gallery
-          </span>
-        </div>
+        {/* Label */}
+        <span className="absolute bottom-3 left-6 text-xs text-muted-foreground font-medium uppercase tracking-wider">
+          About
+        </span>
       </button>
 
       {mounted && isOpen && createPortal(
@@ -83,13 +120,13 @@ export function GalleryBox({ className = "" }: { className?: string }) {
 
               <div className="p-6 border-b border-border">
                 <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
-                  Gallery
+                  About
                 </span>
               </div>
 
               <div className="p-6 overflow-y-auto h-[calc(70vh-80px)]">
                 <div className="space-y-4 text-muted-foreground">
-                  <p>Content for Gallery goes here.</p>
+                  <p>Content for About goes here.</p>
                 </div>
               </div>
             </div>
