@@ -1,6 +1,7 @@
 "use client"
 
 import { BentoBox } from "./bento-box"
+import { ContactBox } from "./contact-box"
 
 
 export function BentoGrid() {
@@ -11,7 +12,7 @@ export function BentoGrid() {
         <BentoBox id="about" label="About" className="row-span-2" />
         <BentoBox id="work" label="Work" />
         <BentoBox id="projects" label="Projects" />
-        <BentoBox id="contact" label="Contact" />
+        <ContactBox />
         <BentoBox id="skills" label="Skills" />
       </div>
 
@@ -20,7 +21,7 @@ export function BentoGrid() {
         <BentoBox id="about" label="About" className="col-span-2 row-span-2" />
         <BentoBox id="work" label="Work" />
         <BentoBox id="projects" label="Projects" />
-        <BentoBox id="contact" label="Contact" />
+        <ContactBox />
         <BentoBox id="skills" label="Skills" />
         <BentoBox id="blog" label="Blog" />
       </div>
@@ -30,7 +31,7 @@ export function BentoGrid() {
         <BentoBox id="about" label="About" className="col-span-2 row-span-2" />
         <BentoBox id="work" label="Work" className="row-span-2" />
         <BentoBox id="projects" label="Projects" />
-        <BentoBox id="contact" label="Contact" />
+        <ContactBox />
         <BentoBox id="skills" label="Skills" />
         <BentoBox id="gallery" label="Gallery" />
         <BentoBox id="blog" label="Blog" className="col-span-2" />

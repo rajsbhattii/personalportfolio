@@ -12,7 +12,7 @@ interface BentoBoxProps {
 
 export function BentoBox({ id, label, className = "" }: BentoBoxProps) {
   const [isOpen, setIsOpen] = useState(false)
-  const [isClosing, setIsClosing] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -20,15 +20,15 @@ export function BentoBox({ id, label, className = "" }: BentoBoxProps) {
   }, [])
 
   const handleClose = () => {
-    setIsClosing(true)
-    setTimeout(() => {
-      setIsOpen(false)
-      setIsClosing(false)
-    }, 200)
+    setIsVisible(false)
+    setTimeout(() => setIsOpen(false), 200)
   }
 
   const handleOpen = () => {
     setIsOpen(true)
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => setIsVisible(true))
+    })
   }
 
   useEffect(() => {
@@ -50,30 +50,22 @@ export function BentoBox({ id, label, className = "" }: BentoBoxProps) {
         </span>
       </button>
 
-      {/* Modal Portal */}
       {mounted && isOpen && createPortal(
         <>
-          {/* Blur Overlay - light tint so grid shows through */}
           <div
             className={`fixed inset-0 z-40 bg-background/15 backdrop-blur-[1px] transition-all duration-300 ${
-              isClosing ? "opacity-0" : "opacity-100"
+              isVisible ? "opacity-100" : "opacity-0"
             }`}
             onClick={handleClose}
           />
 
-          {/* Modal Container */}
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none p-4 md:p-6 lg:p-8"
-          >
+          <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none p-4 md:p-6 lg:p-8">
             <div
               className={`relative w-full max-w-2xl h-[70vh] bg-card border border-border rounded-xl shadow-2xl pointer-events-auto transition-all duration-300 ease-out ${
-                isClosing 
-                  ? "opacity-0 scale-95" 
-                  : "opacity-100 scale-100"
+                isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
               }`}
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
               <button
                 onClick={handleClose}
                 className="absolute top-4 right-4 z-10 p-2 rounded-full hover:bg-muted transition-colors"
@@ -81,14 +73,12 @@ export function BentoBox({ id, label, className = "" }: BentoBoxProps) {
                 <X className="w-4 h-4 text-muted-foreground" />
               </button>
 
-              {/* Header */}
               <div className="p-6 border-b border-border">
                 <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
                   {label}
                 </span>
               </div>
 
-              {/* Scrollable Content */}
               <div className="p-6 overflow-y-auto h-[calc(70vh-80px)]">
                 <div className="space-y-4 text-muted-foreground">
                   <p>Content for {label} goes here.</p>
