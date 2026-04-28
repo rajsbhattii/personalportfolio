@@ -6,28 +6,28 @@ import { createPortal } from "react-dom"
 
 const experiences = [
   {
-    company: "Lorem Ipsum Co.",
-    role: "Senior Lorem Engineer",
-    period: "2023 – Present",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    company: "Scotiabank",
+    role: "Full Stack Engineer",
+    period: "Sept. 2026 – Present",
+    description: "Incoming full-time @ Scotiabank.",
   },
   {
-    company: "Dolor Sit Inc.",
-    role: "Full Stack Developer",
-    period: "2022 – 2023",
-    description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  },
-  {
-    company: "Amet Corp.",
+    company: "Scotiabank",
     role: "Software Engineer Intern",
-    period: "2021 – 2022",
-    description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    period: "Sept. 2025 – Aug. 2026",
+    description: "Simplifying client onboarding and maintenance with a new, dynamic document generation tool.",
   },
   {
-    company: "Consectetur Ltd.",
-    role: "Junior Developer",
-    period: "2020 – 2021",
-    description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    company: "Scotiabank",
+    role: "Data Engineer Intern",
+    period: "May 2025 – Aug. 2025",
+    description: "Automating risk reporting and analytics pipelines to deliver real-time executive insights across enterprise data systems.",
+  },
+  {
+    company: "Western Developer Society",
+    role: "Full Stack Developer",
+    period: "Oct. 2024 – May 2025",
+    description: "Navigating campus accessibility with an AI-powered, voice-enabled mobile app for seamless multi-building routing.",
   },
 ]
 
