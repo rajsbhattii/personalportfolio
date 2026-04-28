@@ -65,6 +65,38 @@ export function WorkBox({ className = "" }: { className?: string }) {
         onClick={handleOpen}
         className={`w-full h-full text-left bg-card border border-border rounded-lg transition-all duration-300 hover:border-foreground/20 hover:shadow-sm cursor-pointer relative ${className}`}
       >
+        {/* Mini timeline skeleton */}
+        <div className="absolute inset-0 flex items-center justify-center pb-6">
+          <div className="relative h-[80%] w-full px-4 flex flex-col justify-between">
+            <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-border" />
+            {Array.from({ length: 5 }).map((_, i) => {
+              const isLeft = i % 2 === 0
+              return (
+                <div key={i} className="relative grid grid-cols-2">
+                  <div className="absolute left-1/2 -translate-x-1/2 top-1.5 w-2 h-2 rounded-full border-2 border-border bg-background z-10" />
+                  {isLeft ? (
+                    <>
+                      <div className="pr-4 flex flex-col items-end gap-1">
+                        <div className="h-2 w-16 bg-muted rounded" />
+                        <div className="h-1.5 w-10 bg-muted/60 rounded" />
+                      </div>
+                      <div />
+                    </>
+                  ) : (
+                    <>
+                      <div />
+                      <div className="pl-4 flex flex-col gap-1">
+                        <div className="h-2 w-16 bg-muted rounded" />
+                        <div className="h-1.5 w-10 bg-muted/60 rounded" />
+                      </div>
+                    </>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
         <span className="absolute bottom-3 left-3 text-xs text-muted-foreground font-medium uppercase tracking-wider">
           Work
         </span>

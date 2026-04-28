@@ -131,12 +131,14 @@ export function AboutBox({ className = "" }: { className?: string }) {
   }, [isOpen])
 
   const handleClose = () => {
+    playerRef.current?.pause()
     setIsVisible(false)
     setTimeout(() => setIsOpen(false), 200)
   }
 
   const handleOpen = () => {
     setIsOpen(true)
+    playerRef.current?.resume()
     requestAnimationFrame(() => {
       requestAnimationFrame(() => setIsVisible(true))
     })
