@@ -183,18 +183,18 @@ export function AboutBox({ className = "" }: { className?: string }) {
           /> */}
 
           {/* Name */}
-          <p className="text-8xl font-bold text-foreground tracking-tight leading-none">
+          <p className="text-4xl sm:text-8xl font-bold text-foreground tracking-tight leading-none">
             Raj Bhatti
           </p>
 
           {/* Typing animation */}
-          <p className="text-2xl text-muted-foreground h-7 flex items-center gap-0.5 p-1">
+          <p className="text-l sm:text-2xl text-muted-foreground h-7 flex items-center gap-0.5 p-1">
             <span>{displayText}</span>
             <span className="animate-pulse">|</span>
           </p>
 
           {/* Tagline */}
-          <p className="text-m text-muted-foreground/60 leading-relaxed p-1">
+          <p className="text-sm sm:text-base text-muted-foreground/60 leading-relaxed p-1">
             building things, capturing moments
           </p>
         </div>
