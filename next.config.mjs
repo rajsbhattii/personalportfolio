@@ -3,10 +3,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-}
-
-module.exports = {
-  output: 'export',
 };
 
-export default nextConfig
+module.exports = nextConfig;
