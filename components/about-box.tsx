@@ -188,7 +188,7 @@ export function AboutBox({ className = "" }: { className?: string }) {
           </p>
 
           {/* Typing animation */}
-          <p className="text-l sm:text-2xl text-muted-foreground h-7 flex items-center gap-0.5 p-1">
+          <p className="text-m sm:text-2xl text-muted-foreground h-7 flex items-center gap-0.5 p-1">
             <span>{displayText}</span>
             <span className="animate-pulse">|</span>
           </p>
