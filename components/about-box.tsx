@@ -174,7 +174,7 @@ export function AboutBox({ className = "" }: { className?: string }) {
         className={`w-full h-full text-left bg-card border border-border rounded-lg transition-all duration-300 hover:border-foreground/20 hover:shadow-sm cursor-pointer relative ${className}`}
       >
         {/* Centered content */}
-        <div className="absolute inset-0 flex flex-col items-start justify-center gap-3 p-6 pb-10">
+        <div className="absolute inset-0 flex flex-col items-start justify-center gap-3 p-3 sm:p-6 pb-10">
           {/* Headshot */}
           {/* <img
             src="/hero.jpg"
@@ -188,7 +188,7 @@ export function AboutBox({ className = "" }: { className?: string }) {
           </p>
 
           {/* Typing animation */}
-          <p className="text-m sm:text-2xl text-muted-foreground h-7 flex items-center gap-0.5 p-1">
+          <p className="text-s sm:text-2xl text-muted-foreground h-7 flex items-center gap-0.5 p-1">
             <span>{displayText}</span>
             <span className="animate-pulse">|</span>
           </p>
