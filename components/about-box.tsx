@@ -20,7 +20,7 @@ type TrackData = {
   uri: string
 }
 
-const roles = ["Software Engineer", "Full Stack Developer", "Data Engineer", "Photographer", "Creative", "Designer", "Tech Enthusiast"]
+const roles = ["Software Engineer", "Data Engineer", "Photographer", "Creative", "Designer", "Tech Enthusiast"]
 
 function formatMs(ms: number) {
   const totalSecs = Math.floor(ms / 1000)
@@ -235,7 +235,7 @@ export function AboutBox({ className = "" }: { className?: string }) {
               </div>
 
               <div className="p-6 overflow-y-auto h-[calc(70vh-80px)]">
-                <div className="flex gap-10">
+                <div className="flex flex-col sm:flex-row gap-6 sm:gap-10">
                   {/* Bio */}
                   <div className="flex-1 space-y-4 text-sm text-muted-foreground leading-relaxed">
                     <p>Hey, I'm Raj, a software engineer & photographer based in Toronto. I'm at Western University for Computer Science, and alongside that, it's just been a lot of building things, hitting the gym, and eating well.</p>
@@ -244,7 +244,7 @@ export function AboutBox({ className = "" }: { className?: string }) {
                   </div>
 
                   {/* Quick facts */}
-                  <div className="w-44 shrink-0 space-y-5">
+                  <div className="w-full sm:w-44 sm:shrink-0 space-y-5">
                     <div>
                       <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground/60 mb-1">Location</p>
                       <p className="text-sm text-foreground">Toronto, Ontario</p>
@@ -303,7 +303,7 @@ export function AboutBox({ className = "" }: { className?: string }) {
                           {track?.name ?? "Loading..."}
                         </p>
                         <div className="flex items-center gap-2 shrink-0">
-                          <button onClick={handleRewind} className="text-muted-foreground hover:text-foreground transition-colors">
+                          <button onClick={handleRewind} className="hidden sm:inline-flex text-muted-foreground hover:text-foreground transition-colors">
                             <Rewind className="w-3.5 h-3.5" />
                           </button>
                           <button
@@ -315,11 +315,11 @@ export function AboutBox({ className = "" }: { className?: string }) {
                               : <Play className="w-3 h-3 text-background ml-0.5" />
                             }
                           </button>
-                          <button onClick={handleFastForward} className="text-muted-foreground hover:text-foreground transition-colors">
+                          <button onClick={handleFastForward} className="hidden sm:inline-flex text-muted-foreground hover:text-foreground transition-colors">
                             <FastForward className="w-3.5 h-3.5" />
                           </button>
                         </div>
-                        <div className="flex items-center gap-1.5 shrink-0">
+                        <div className="hidden sm:flex items-center gap-1.5 shrink-0">
                           <Volume2 className="w-3 h-3 text-muted-foreground" />
                           <input
                             type="range" min="0" max="100" defaultValue="70"
