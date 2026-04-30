@@ -6,6 +6,7 @@ import { ContactBox } from "./contact-box"
 import { SkillsBox } from "./skills-box"
 import { GalleryBox } from "./gallery-box"
 import { WorkBox } from "./work-box"
+import { ProjectsBox } from "./projects-box"
 
 
 export function BentoGrid() {
@@ -15,7 +16,7 @@ export function BentoGrid() {
       <div className="grid md:hidden grid-cols-2 gap-3 h-full">
         <AboutBox className="row-span-2" />
         <WorkBox />
-        <BentoBox id="projects" label="Projects" />
+        <ProjectsBox />
         <ContactBox />
         <SkillsBox />
       </div>
@@ -24,7 +25,7 @@ export function BentoGrid() {
       <div className="hidden md:grid lg:hidden grid-cols-3 gap-4 h-full">
         <AboutBox className="col-span-2 row-span-2" />
         <WorkBox />
-        <BentoBox id="projects" label="Projects" />
+        <ProjectsBox />
         <ContactBox />
         <SkillsBox />
         <BentoBox id="blog" label="Blog" />
@@ -34,7 +35,7 @@ export function BentoGrid() {
       <div className="hidden lg:grid grid-cols-4 grid-rows-3 gap-4 h-full">
         <AboutBox className="col-span-2 row-span-2" />
         <WorkBox className="row-span-2" />
-        <BentoBox id="projects" label="Projects" />
+        <ProjectsBox />
         <ContactBox />
         <SkillsBox />
         <GalleryBox />
